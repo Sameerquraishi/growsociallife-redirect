@@ -1,22 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Instagram OAuth Redirect</title>
-    <script>
-        // Extract access token from URL
-        const hash = window.location.hash.substring(1);
-        const params = new URLSearchParams(hash);
-        const accessToken = params.get("access_token");
-
-        if (accessToken) {
-            // Redirect back to your app with the access token
-            window.location.href = "yourapp://auth?access_token=" + accessToken;
-        } else {
-            document.write("<h2>Authorization Failed</h2>");
-        }
-    </script>
+    <title>GrowSocialLife Auth Redirect</title>
 </head>
 <body>
-    <h1>Processing Instagram Login...</h1>
+    <p>Processing authentication...</p>
+    <script>
+        // This will handle the OAuth redirect
+        if (window.location.search) {
+            window.location.href = "growsociallife://auth" + window.location.search;
+        }
+    </script>
 </body>
 </html>
